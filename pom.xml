@@ -53,7 +53,7 @@
                         <version>${surefire.version}</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>testAddSub.xml</suiteXmlFile>
+                                <suiteXmlFile>src/main/resources/testAddSub.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
@@ -70,7 +70,7 @@
                         <version>${surefire.version}</version>
                         <configuration>
                             <suiteXmlFiles>
-                                <suiteXmlFile>testMultDiv.xml</suiteXmlFile>
+                                <suiteXmlFile>src/main/resources/testMultDiv.xml</suiteXmlFile>
                             </suiteXmlFiles>
                         </configuration>
                     </plugin>
