@@ -4,26 +4,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hw1</groupId>
-    <artifactId>hw1</artifactId>
+    <groupId>hw2</groupId>
+    <artifactId>hw2</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <name>hw2</name>
+
+
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-        <calculator.version>1.0</calculator.version>
-        <testng.version>6.10</testng.version>
-        <surefire.version>3.0.0-M5</surefire.version>
+        <testng.version>7.4.0</testng.version>
+        <selenium-java.version>3.141.59</selenium-java.version>
+        <commons-configuration.version>1.10</commons-configuration.version>
+        <assertj-core.version>3.19.0</assertj-core.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>localrep</id>
-            <name>local repository</name>
-            <url>file:${project.basedir}/lib</url>
-        </repository>
-    </repositories>
 
     <dependencies>
         <dependency>
@@ -33,68 +28,25 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>ru.local</groupId>
-            <artifactId>calculator</artifactId>
-            <version>${calculator.version}</version>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-configuration</groupId>
+            <artifactId>commons-configuration</artifactId>
+            <version>${commons-configuration.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj-core.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>test-AddSub</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/main/resources/testAddSub.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>test-MultiplyDivide</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/main/resources/testMultDiv.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-        <profile>
-            <id>test-Complex</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${surefire.version}</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>testAddSub.xml</suiteXmlFile>
-                                <suiteXmlFile>testMultDiv.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
-
 </project>
+
+
+
+

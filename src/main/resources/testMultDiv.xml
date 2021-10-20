@@ -1,9 +1,0 @@
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="SuiteMultiplyDivide">
-    <test name="TestAddSub">
-        <classes>
-            <class name="selenium_hw_1.MultiplyTest" />
-            <class name="selenium_hw_1.DivideTest"/>
-        </classes>
-    </test>
-</suite>
