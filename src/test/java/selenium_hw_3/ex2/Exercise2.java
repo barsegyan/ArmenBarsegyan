@@ -31,7 +31,7 @@ public class Exercise2 {
 
     public void setUpDriverAndProperties() throws ConfigurationException {
 
-        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "src/main/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         properties = new PropertiesConfiguration(pathToProperties);
