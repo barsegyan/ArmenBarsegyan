@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hw2</groupId>
-    <artifactId>hw2</artifactId>
+    <groupId>hw3</groupId>
+    <artifactId>hw3</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <name>hw2</name>
+    <name>hw3</name>
 
 
     <properties>
@@ -18,6 +18,9 @@
         <selenium-java.version>3.141.59</selenium-java.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <assertj-core.version>3.19.0</assertj-core.version>
+        <htmlelements-java.version>1.20.0</htmlelements-java.version>
+        <lombok.version>1.18.20</lombok.version>
+        <aspectj.version>1.8.10</aspectj.version>
     </properties>
 
     <dependencies>
@@ -33,6 +36,12 @@
             <version>${selenium-java.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
             <version>${commons-configuration.version}</version>
@@ -43,7 +52,33 @@
             <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>ru.yandex.qatools.htmlelements</groupId>
+            <artifactId>htmlelements-java</artifactId>
+            <version>${htmlelements-java.version}</version>
+        </dependency>
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.20</version>
+                <configuration>
+                    <argLine>
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
 
