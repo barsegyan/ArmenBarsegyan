@@ -110,12 +110,18 @@
     <profiles>
         <profile>
             <id>UIWithPOM</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <testng.suite.file>${testng.suite.path}/SimplePageObject.xml</testng.suite.file>
             </properties>
         </profile>
         <profile>
             <id>AllureUI</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
             <properties>
                 <testng.suite.file>${testng.suite.path}/AllureUI.xml</testng.suite.file>
             </properties>
