@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="UI tests with POM and Allure reports" verbose="1" >
+    <test name="Home Page Main Items Visibility Test">
+        <packages>
+            <package name="selenium_hw_4.tests.ex1"/>
+        </packages>
+    </test>
+    <test name="Different Elements Page Main Form Test">
+        <packages>
+            <package name="selenium_hw_4.tests.ex2"/>
+        </packages>
+    </test>
+</suite>

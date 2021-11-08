@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>hw3</groupId>
-    <artifactId>hw3</artifactId>
-    <version>1.0-SNAPSHOT</version>
-
-    <name>hw3</name>
-
+    <groupId>com.epam</groupId>
+    <artifactId>Selenium-ArmenBarsegyan</artifactId>
+    <version>1.0</version>
 
     <properties>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
         <testng.version>7.4.0</testng.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <lombok.version>1.18.20</lombok.version>
+        <testng.suite.path>${project.basedir}/src/test/resources/suits</testng.suite.path>
         <selenium-java.version>3.141.59</selenium-java.version>
+        <webdrivermanager.version>4.4.3</webdrivermanager.version>
         <commons-configuration.version>1.10</commons-configuration.version>
         <assertj-core.version>3.19.0</assertj-core.version>
         <htmlelements-java.version>1.20.0</htmlelements-java.version>
-        <lombok.version>1.18.20</lombok.version>
-        <aspectj.version>1.8.10</aspectj.version>
+        <aspectj.version>1.9.6</aspectj.version>
+        <allure-testng.version>2.13.2</allure-testng.version>
+        <allure-maven.version>2.10.0</allure-maven.version>
+        <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
     </properties>
 
     <dependencies>
@@ -31,15 +34,27 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium-java.version}</version>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>${hamcrest-all.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium-java.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdrivermanager.version}</version>
+            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>commons-configuration</groupId>
@@ -57,14 +72,24 @@
             <artifactId>htmlelements-java</artifactId>
             <version>${htmlelements-java.version}</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure-testng.version}</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.20</version>
+                <version>${maven-surefire-plugin.version}</version>
                 <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${testng.suite.file}</suiteXmlFile>
+                    </suiteXmlFiles>
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
@@ -77,11 +102,46 @@
                     </dependency>
                 </dependencies>
             </plugin>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+            </plugin>
         </plugins>
     </build>
+    <profiles>
+        <profile>
+            <id>UIWithPOM</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testng.suite.file>${testng.suite.path}/SimplePageObject.xml</testng.suite.file>
+            </properties>
+        </profile>
+        <profile>
+            <id>AllureUI</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <testng.suite.file>${testng.suite.path}/AllureUI.xml</testng.suite.file>
+            </properties>
+        </profile>
+    </profiles>
+
+    <reporting>
+        <excludeDefaults>true</excludeDefaults>
+        <plugins>
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure-maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure-testng.version}</reportVersion>
+                </configuration>
+            </plugin>
+        </plugins>
+    </reporting>
 
 </project>
-
-
-
-
