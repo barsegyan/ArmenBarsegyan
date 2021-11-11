@@ -31,7 +31,11 @@ public class HomePage extends BasePage {
         PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)),this);
         this.driver = driver;
         header.driver = driver;
+    }
+
+    public HomePage open() {
         driver.get(URL);
+        return this;
     }
 
     public List<Benefit> getBenefits() {

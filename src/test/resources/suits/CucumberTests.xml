@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Smoke and Regression Cucumber" verbose="1" >
+    <test name="User Table page Regression">
+        <classes>
+            <class name="selenium_hw_5.runners.RegressionUserTableTests"/>
+        </classes>
+    </test>
+    <test name="Different Elements page Smoke">
+        <classes>
+            <class name="selenium_hw_5.runners.SmokeDifferentElementsFormTest"/>
+        </classes>
+    </test>
+</suite>
