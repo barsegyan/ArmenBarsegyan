@@ -34,5 +34,4 @@ public class   CucumberHook {
         }
         TestContext.getInstance().clean();
     }
-
 }

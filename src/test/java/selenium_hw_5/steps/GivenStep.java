@@ -19,5 +19,4 @@ public class GivenStep extends AbstractStep {
                 (String) properties.getList(name).get(1)
         );
     }
-
 }

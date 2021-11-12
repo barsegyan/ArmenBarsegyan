@@ -21,5 +21,4 @@ public class UserData {
         this.user = userData.get(1);
         this.description = userData.get(2);
     }
-
 }

@@ -64,7 +64,7 @@ public class Exercise2 {
                 "Search",
                 "Complex Table",
                 "Simple Table",
-                "User Table",
+                "User.Table",
                 "Table with pages",
                 "Different elements",
                 "Performance"
@@ -88,7 +88,7 @@ public class Exercise2 {
                 "Complex Table",
                 "Simple Table",
                 "Search",
-                "User Table",
+                "User.Table",
                 "Table with pages",
                 "Different elements",
                 "Performance"

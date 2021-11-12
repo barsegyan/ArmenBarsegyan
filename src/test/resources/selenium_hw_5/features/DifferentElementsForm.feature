@@ -3,7 +3,7 @@ Feature: User can edit main form on Different Elements page
   @smoke
   Scenario: User can edit checkboxes, radio and dropdown
     Given I open JDI GitHub site
-    And I login as user "Roman Iovlev"
+    And I login as user "Roman.Iovlev"
     Then Browser title equals "Home Page"
     And Name is displayed and equals to "ROMAN IOVLEV"
     When I click on "Service" button in Header

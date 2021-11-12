@@ -35,5 +35,4 @@ public class UserLine extends HtmlElement {
                 descriptionText.getText())
         );
     }
-
 }

@@ -22,4 +22,5 @@ public final class UserTableUtil {
                 .map(function)
                 .collect(Collectors.toList());
     }
+
 }

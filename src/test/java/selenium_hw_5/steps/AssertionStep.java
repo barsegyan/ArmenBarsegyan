@@ -99,24 +99,9 @@ public class AssertionStep extends AbstractStep {
     }
 
     @Then("User table should contain following values:")
-    public void compareUserTable(List<List<String>> expectedValues) {
-        SoftAssertions softAssertions = new SoftAssertions();
-
-        List<UserData> expectedUsersData = AssertionUtil.removeFirstFromList(expectedValues)
-                .stream()
-                .map(UserData::new)
-                .collect(Collectors.toList());
-
-        List<UserData> actualUsersData = userTablePage
-                .getUserTable()
-                .getUsersInTable()
-                .stream()
-                .map(UserLine::getUserData)
-                .collect(Collectors.toList());
-
-        softAssertions.assertThat(actualUsersData)
-                .isEqualTo(expectedUsersData);
-        softAssertions.assertAll();
+    public void checkCheckboxes(List<List<String>> dataTable){
+        dataTable.remove(0);
+        assertThat(userTablePage.getUserTable().createUserTable()).isEqualTo(dataTable);
     }
 
     @Then("droplist should contain values in column Type for user {string}")
