@@ -8,4 +8,5 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"hw5.steps"},
         tags = "@smoke"
 )
-public class SmokeDifferentElementsFormTest extends AbstractTestNGCucumberTests {}
+public class SmokeDifferentElementsFormTest extends AbstractTestNGCucumberTests {
+}

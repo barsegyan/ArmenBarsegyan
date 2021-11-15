@@ -28,22 +28,25 @@ public class UserTable extends HtmlElement {
 
     @FindBy(css = ".main-content-hg th")
 
-    @Getter private List<WebElement> columnNames;
+    @Getter
+    private List<WebElement> columnNames;
 
-    @Getter private List<UserLine> usersInTable;
+    @Getter
+    private List<UserLine> usersInTable;
 
 
-    public List<WebElement> getUserNames(){
+    public List<WebElement> getUserNames() {
         return userNames;
     }
 
-    public List<WebElement> getCheckboxes(){
+    public List<WebElement> getCheckboxes() {
         return checkboxes;
     }
 
-    public List<WebElement> getNumberTypeDropdowns(){
+    public List<WebElement> getNumberTypeDropdowns() {
         return numberTypeDropdowns;
     }
+
     public List<List<String>> createUserTable() {
         List<List<String>> userTable = new ArrayList<>();
 
@@ -51,7 +54,7 @@ public class UserTable extends HtmlElement {
             userTable.add(new ArrayList<>(
                     List.of(numberTypeDropdowns.get(i).getText(),
                             userNames.get(i).getText(),
-                            description.get(i).getText().replace("\n"," "))));
+                            description.get(i).getText().replace("\n", " "))));
         }
 
         return userTable;

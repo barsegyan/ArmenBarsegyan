@@ -15,8 +15,8 @@ public class GivenStep extends AbstractStep {
     public void performLogin(String name) {
         Configuration properties = TestContext.getInstance().getTestObject("properties");
         homePage.getHeader().signInWithoutClear(
-                (String) properties.getList(name).get(0),
-                (String) properties.getList(name).get(1)
+                properties.getList(name).get(0).toString(),
+                properties.getList(name).get(1).toString()
         );
     }
 }

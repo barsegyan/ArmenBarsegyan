@@ -18,8 +18,10 @@ public class HomePage extends BasePage {
 
     private static final String URL = "https://jdi-testing.github.io/jdi-light/index.html";
 
-    @Getter private Header header;
-    @Getter private LeftSection leftSection;
+    @Getter
+    private Header header;
+    @Getter
+    private LeftSection leftSection;
 
     @FindBy(className = "benefit")
     private List<WebElement> benefits;
@@ -28,7 +30,7 @@ public class HomePage extends BasePage {
     private WebElement frame;
 
     public HomePage(WebDriver driver) {
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)),this);
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
         this.driver = driver;
         header.driver = driver;
     }

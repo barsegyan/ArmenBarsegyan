@@ -37,7 +37,7 @@ public class AssertionStep extends AbstractStep {
         SoftAssertions softAssertions = new SoftAssertions();
         List<String> actualLogs = differentElementsPage.getRightSection().getLogs();
         softAssertions.assertThat(actualLogs)
-                        .hasSize(expectedLogs.size());
+                .hasSize(expectedLogs.size());
         Iterator<String> expected = expectedLogs.iterator();
         for (String actualLog : actualLogs) {
             String regexForString = AssertionUtil.getLogRegexWithTime(expected.next());
@@ -99,7 +99,7 @@ public class AssertionStep extends AbstractStep {
     }
 
     @Then("User table should contain following values:")
-    public void checkCheckboxes(List<List<String>> dataTable){
+    public void checkCheckboxes(List<List<String>> dataTable) {
         dataTable.remove(0);
         assertThat(userTablePage.getUserTable().createUserTable()).isEqualTo(dataTable);
     }
@@ -107,8 +107,7 @@ public class AssertionStep extends AbstractStep {
     @Then("droplist should contain values in column Type for user {string}")
     public void assertDropDownValuesForUserOnUserTablePage(
             String userName,
-            List<String> expectedDropDownValues)
-    {
+            List<String> expectedDropDownValues) {
         List<String> dropDownForUserOptions = userTablePage
                 .getUserTable()
                 .getUsersInTable()
@@ -125,6 +124,4 @@ public class AssertionStep extends AbstractStep {
         assertThat(dropDownForUserOptions)
                 .isEqualTo(AssertionUtil.removeFirstFromList(expectedDropDownValues));
     }
-
-
 }

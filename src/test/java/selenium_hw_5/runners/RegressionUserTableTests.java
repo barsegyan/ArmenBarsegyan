@@ -10,4 +10,5 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"hw5.steps"},
         tags = "@regression"
 )
-public class RegressionUserTableTests extends AbstractTestNGCucumberTests {}
+public class RegressionUserTableTests extends AbstractTestNGCucumberTests {
+}

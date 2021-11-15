@@ -15,7 +15,7 @@ import java.util.List;
  @Listeners because:
  https://github.com/allure-framework/allure1/issues/730#issuecomment-170884245
  */
-@Listeners({ ScreenShotListener.class })
+@Listeners({ScreenShotListener.class})
 @Story("User can see main items on Home Page and logged in")
 public class HomePageTest extends BaseTest {
 
@@ -40,7 +40,7 @@ public class HomePageTest extends BaseTest {
         assertionStep.comparePageTitle(properties.getString("title"));
 
         // 3. Perform login
-        actionStep.performLogin(properties.getString("login"),properties.getString("password"));
+        actionStep.performLogin(properties.getString("login"), properties.getString("password"));
         assertionStep.verifyIsLogged();
 
         // 4. Assert Username is logged

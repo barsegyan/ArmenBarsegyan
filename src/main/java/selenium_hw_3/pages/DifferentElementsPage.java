@@ -12,13 +12,17 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory
 
 public class DifferentElementsPage extends BasePage {
 
-    @Getter private Header header;
-    @Getter private Main main;
-    @Getter private LeftSection leftSection;
-    @Getter private RightSection rightSection;
+    @Getter
+    private Header header;
+    @Getter
+    private Main main;
+    @Getter
+    private LeftSection leftSection;
+    @Getter
+    private RightSection rightSection;
 
     public DifferentElementsPage(WebDriver driver) {
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)),this);
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
         this.driver = driver;
         header.driver = driver;
     }

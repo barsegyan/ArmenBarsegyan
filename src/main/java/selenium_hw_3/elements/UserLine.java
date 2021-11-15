@@ -17,16 +17,20 @@ public class UserLine extends HtmlElement {
     WebElement number;
 
     @FindBy(tagName = "select")
-    @Getter Select dropDown;
+    @Getter
+    Select dropDown;
 
     @FindBy(tagName = "a")
-    @Getter WebElement userName;
+    @Getter
+    WebElement userName;
 
     @FindBy(tagName = "input")
-    @Getter CheckBox vipCheckBox;
+    @Getter
+    CheckBox vipCheckBox;
 
     @FindBy(tagName = "span")
-    @Getter WebElement descriptionText;
+    @Getter
+    WebElement descriptionText;
 
     public UserData getUserData() {
         return new UserData(Arrays.asList(

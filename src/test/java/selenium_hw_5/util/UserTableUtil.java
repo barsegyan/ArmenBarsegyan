@@ -14,13 +14,11 @@ public final class UserTableUtil {
 
     public static List<WebElement> getFromUserTableByLambda(
             UserTable userTable,
-            Function<UserLine, WebElement> function)
-    {
+            Function<UserLine, WebElement> function) {
         return userTable
                 .getUsersInTable()
                 .stream()
                 .map(function)
                 .collect(Collectors.toList());
     }
-
 }

@@ -11,16 +11,17 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class   CucumberHook {
+public class CucumberHook {
 
     private final String pathToProperties = "src/test/resources/data/PageData.properties";
+    final int tenSeconds = 10;
 
     @Before
     public void downloadAndSetUpWebDriver() throws ConfigurationException {
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(tenSeconds, TimeUnit.SECONDS);
         TestContext.getInstance()
                 .putTestObject("driver", driver)
                 .putTestObject("properties", new PropertiesConfiguration(pathToProperties));

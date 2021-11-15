@@ -11,12 +11,15 @@ import ru.yandex.qatools.htmlelements.loader.decorator.HtmlElementLocatorFactory
 
 public class UserTablePage extends BasePage {
 
-    @Getter private UserTable userTable;
-    @Getter private LeftSection leftSection;
-    @Getter private RightSection rightSection;
+    @Getter
+    private UserTable userTable;
+    @Getter
+    private LeftSection leftSection;
+    @Getter
+    private RightSection rightSection;
 
     public UserTablePage(WebDriver driver) {
-        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)),this);
+        PageFactory.initElements(new HtmlElementDecorator(new HtmlElementLocatorFactory(driver)), this);
         this.driver = driver;
     }
 }

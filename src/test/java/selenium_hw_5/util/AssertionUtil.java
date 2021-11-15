@@ -9,6 +9,7 @@ import java.util.List;
 
 @UtilityClass
 public final class AssertionUtil {
+    final int boundarySize = 0;
 
     public static String getLogRegexWithTime(String logWithOutTime) {
         return String.format("\\d\\d:\\d\\d:\\d\\d %s", logWithOutTime);
@@ -24,8 +25,8 @@ public final class AssertionUtil {
 
     public static <T> List<T> removeFirstFromList(List<T> list) {
         List<T> newList = new ArrayList<>(list);
-        if (newList.size() > 0) {
-            newList.remove(0);
+        if (newList.size() > boundarySize) {
+            newList.remove(boundarySize);
         }
         return newList;
     }

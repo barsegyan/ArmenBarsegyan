@@ -44,5 +44,4 @@ public class ActionStep extends AbstractStep {
                 .map(UserLine::getVipCheckBox)
                 .forEach(CheckBox::select);
     }
-
 }
