@@ -1,7 +1,6 @@
 package selenium_hw_3.elements;
 
 import selenium_hw_3.pages.DifferentElementsPage;
-import selenium_hw_3.pages.HomePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,9 +13,10 @@ import java.util.stream.Collectors;
 @FindBy(tagName = "header")
 public class Header extends HtmlElement {
 
-    public WebDriver driver;
+    private static final String SERVICE = "Service";
+    private static final String DIFFERENT_ELEMENTS = "Different elements";
 
-    private static final By differentElementLocator = By.xpath("//a[contains(text(), \"Different elements\")]");
+    public WebDriver driver;
 
     @FindBy(id = "name")
     private WebElement loginField;
@@ -35,6 +35,9 @@ public class Header extends HtmlElement {
 
     @FindBy(css = "ul.nav>li")
     private List<WebElement> navigationList;
+
+    @FindBy(css = "ul.nav")
+    private WebElement navigation;
 
     public Header inputLogin(String login) {
         loginField.sendKeys(login);
@@ -79,18 +82,23 @@ public class Header extends HtmlElement {
                 .collect(Collectors.toList());
     }
 
-    public HomePage clickHome() {
-        navigationList.get(0).click();
-        return new HomePage(driver);
-    }
-
     public Header clickService() {
-        navigationList.get(2).click();
+        getByNameInHeader(SERVICE).click();
         return this;
     }
 
     public DifferentElementsPage clickDifferentElement() {
-        driver.findElement(differentElementLocator).click();
+        getByNameInServiceDropDownInHeader(DIFFERENT_ELEMENTS).click();
         return new DifferentElementsPage(driver);
+    }
+
+    public WebElement getByNameInHeader(String nameInHeader) {
+        return navigation
+                .findElement(By.xpath(String.format("./li/a[contains(text(), \"%s\")]", nameInHeader)));
+    }
+
+    public WebElement getByNameInServiceDropDownInHeader(String nameInService) {
+        return getByNameInHeader(SERVICE)
+                .findElement(By.xpath(String.format("//a[contains(text(), \"%s\")]", nameInService)));
     }
 }

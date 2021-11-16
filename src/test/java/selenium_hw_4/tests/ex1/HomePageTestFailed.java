@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 import java.util.Arrays;
 import java.util.List;
 
-@Listeners({ ScreenShotListener.class })
+@Listeners({ScreenShotListener.class})
 @Story("Show that screen shot listener is working so there are screenshots while failse")
 public class HomePageTestFailed extends BaseTest {
 
@@ -40,7 +40,7 @@ public class HomePageTestFailed extends BaseTest {
         assertionStep.comparePageTitle(properties.getString("title"));
 
         // 3. Perform login
-        actionStep.performLogin(properties.getString("login"),properties.getString("password"));
+        actionStep.performLogin(properties.getString("login"), properties.getString("password"));
         assertionStep.verifyIsLogged();
 
         // 4. Assert Username is logged
